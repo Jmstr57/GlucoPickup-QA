@@ -10,14 +10,25 @@ body:
     attributes:
       label: Feature
       options:
-        - Pickup
-        - Invoice
-        - Seller
-        - Product
-        - Mileage
-        - Payments
-        - UI
-        - System
+        - Pickups
+        - Sellers
+        - Buyers
+        - Products
+        - Invoices
+        - Mileage Log
+        - Shipping Log
+        - Expenses
+        - Seller Payables
+        - Partner Payables
+        - Business Report
+        - Financial Dashboard
+        - Tax Report
+        - Tax Jar
+        - Tax Deductions
+        - Supplier Report
+        - Dashboard
+        - Calendar
+        - Field Mode
 
   - type: dropdown
     id: severity
