@@ -1,0 +1,53 @@
+name: Auto Label Issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto apply labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body;
+
+            const labels = [];
+
+            // Feature labels
+            if (body.includes('Pickups')) labels.push('Pickups');
+            if (body.includes('Sellers')) labels.push('Sellers');
+            if (body.includes('Buyers')) labels.push('Buyers');
+            if (body.includes('Products')) labels.push('Products');
+            if (body.includes('Invoices')) labels.push('Invoices');
+            if (body.includes('Mileage Log')) labels.push('Mileage Log');
+            if (body.includes('Shipping Log')) labels.push('Shipping Log');
+            if (body.includes('Expenses')) labels.push('Expenses');
+            if (body.includes('Seller Payables')) labels.push('Seller Payables');
+            if (body.includes('Partner Payables')) labels.push('Partner Payables');
+            if (body.includes('Business Report')) labels.push('Business Report');
+            if (body.includes('Financial Dashboard')) labels.push('Financial Dashboard');
+            if (body.includes('Tax Report')) labels.push('Tax Report');
+            if (body.includes('Tax Jar')) labels.push('Tax Jar');
+            if (body.includes('Tax Deductions')) labels.push('Tax Deductions');
+            if (body.includes('Supplier Report')) labels.push('Supplier Report');
+            if (body.includes('Dashboard')) labels.push('Dashboard');
+            if (body.includes('Calendar')) labels.push('Calendar');
+            if (body.includes('Field Mode')) labels.push('Field Mode');
+
+            // Severity labels
+            if (body.includes('Critical')) labels.push('Critical');
+            if (body.includes('High')) labels.push('High');
+            if (body.includes('Medium')) labels.push('Medium');
+            if (body.includes('Low')) labels.push('Low');
+
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: labels
+              });
+            }
