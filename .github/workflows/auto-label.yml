@@ -13,7 +13,6 @@ jobs:
         with:
           script: |
             const body = context.payload.issue.body;
-
             const labels = [];
 
             // Feature labels
