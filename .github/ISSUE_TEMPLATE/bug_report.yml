@@ -1,0 +1,54 @@
+name: Bug Report
+description: Log a defect for GlucoPickup system
+title: "[BUG]: "
+labels: []
+assignees: []
+
+body:
+  - type: dropdown
+    id: feature
+    attributes:
+      label: Feature
+      options:
+        - Pickup
+        - Invoice
+        - Seller
+        - Product
+        - Mileage
+        - Payments
+        - UI
+        - System
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical
+        - High
+        - Medium
+        - Low
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Result
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Result
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
